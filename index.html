@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>QR Code Reader</title>
     <script type="text/javascript" src="js\instascan.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css\styles.css">
 </head>
 <body>
-    <div style="border: 5px solid black;">
+    <div id="camera_container">
+        <h1>Webcam</h1>
         <video id="webcam_scanner"></video>
     </div>
     <br/><br/>
-    <div id="camera_check"></div>
-    <div id="scan_result"></div>
+    Is webcam enabled: <div id="camera_check"></div>
+    QRcode information: <div id="scan_result"></div>
     <script src="js\qrreader.js"></script>
 </body>
 </html>

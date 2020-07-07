@@ -1,0 +1,17 @@
+body{
+    background-color: azure;
+}
+#camera_container{
+    text-align: center;
+}
+#camera_container > h1 {
+    font-weight: bolder;
+}
+#webcam_scanner{
+    border: 1px solid tan;
+    width: 300px;
+    height: 300px;
+}
+#camera_check, #scan_result{
+    font-weight: bolder;
+}
