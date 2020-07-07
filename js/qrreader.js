@@ -2,7 +2,7 @@ var webcam_scanner = document.getElementById('webcam_scanner');
 var scan_result = document.getElementById('scan_result');
 var camera_check = document.getElementById('camera_check');
 
-var scanner = new Instascan.Scanner({ video: document.getElementById('webcam_scanner') });
+var scanner = new Instascan.Scanner({ video: webcam_scanner });
 scanner.addListener('scan', function (content) {
     console.log(content);
     scan_result.innerHTML = content;
