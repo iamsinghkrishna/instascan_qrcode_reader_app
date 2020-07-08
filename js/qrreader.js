@@ -12,6 +12,14 @@ function qrcodeReaderSwitch(){
   if(qrcodeContainer.hidden===true){
     qrcodeContainer.hidden = false;
     qrcodeButton.textContent = "Turn off QR code reader";
+    
+    // Use facingMode: environment to attemt to get the front camera on phones
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
+      video.srcObject = stream;
+      video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
+      video.play();
+      requestAnimationFrame(tick);
+    });
   }else{
     qrcodeContainer.hidden = true;
     qrcodeButton.textContent = "Turn on QR code reader";
@@ -28,20 +36,11 @@ function drawLine(begin, end, color) {
   canvas.stroke();
 }
 
-// Use facingMode: environment to attemt to get the front camera on phones
-navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
-  video.srcObject = stream;
-  video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
-  video.play();
-  requestAnimationFrame(tick);
-});
-
 function tick() {
   loadingMessage.innerText = "Loading video..."
   if (video.readyState === video.HAVE_ENOUGH_DATA) {
     loadingMessage.hidden = true;
     canvasElement.hidden = false;
-    //outputContainer.hidden = false;
 
     canvasElement.height = video.videoHeight;
     canvasElement.width = video.videoWidth;
@@ -55,13 +54,8 @@ function tick() {
       drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
       drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
       drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
-      /*outputMessage.hidden = true;
-      outputData.parentElement.hidden = false;
-      outputData.innerText = code.data;*/
       qrOutput.innerText = code.data;
     } else {
-      /*outputMessage.hidden = false;
-      outputData.parentElement.hidden = true;*/
       qrOutput.innerText = 'No Data Found!!!';
     }
   }
