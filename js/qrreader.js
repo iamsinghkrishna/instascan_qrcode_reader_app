@@ -3,9 +3,10 @@ video.setAttribute("id", "webcamScanner");
 var canvasElement = document.getElementById("canvas");
 var canvas = canvasElement.getContext("2d");
 var loadingMessage = document.getElementById("loadingMessage");
-var outputContainer = document.getElementById("output");
+var qrOutput = document.getElementById("qrOutput");
+/*var outputContainer = document.getElementById("output");
 var outputMessage = document.getElementById("outputMessage");
-var outputData = document.getElementById("outputData");
+var outputData = document.getElementById("outputData");*/
 
 function drawLine(begin, end, color) {
   canvas.beginPath();
@@ -25,11 +26,11 @@ navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).th
 });
 
 function tick() {
-  loadingMessage.innerText = "âŒ› Loading video..."
+  loadingMessage.innerText = "Loading video..."
   if (video.readyState === video.HAVE_ENOUGH_DATA) {
     loadingMessage.hidden = true;
     canvasElement.hidden = false;
-    outputContainer.hidden = false;
+    //outputContainer.hidden = false;
 
     canvasElement.height = video.videoHeight;
     canvasElement.width = video.videoWidth;
@@ -43,12 +44,14 @@ function tick() {
       drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
       drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
       drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
-      outputMessage.hidden = true;
+      /*outputMessage.hidden = true;
       outputData.parentElement.hidden = false;
-      outputData.innerText = code.data;
+      outputData.innerText = code.data;*/
+      qrOutput.innerText = code.data;
     } else {
-      outputMessage.hidden = false;
-      outputData.parentElement.hidden = true;
+      /*outputMessage.hidden = false;
+      outputData.parentElement.hidden = true;*/
+      qrOutput.innerText = 'No Data Found!!!';
     }
   }
   requestAnimationFrame(tick);

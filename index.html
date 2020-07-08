@@ -9,10 +9,11 @@
   <h1>Webcam QR code reader</h1>
   <div id="loadingMessage">Unable to access video stream (please make sure you have a webcam enabled)</div>
   <canvas id="canvas" hidden></canvas>
-  <div id="output" hidden>
+  <div>QR code info: <span id="qrOutput"></span></div>
+  <!--<div id="output" hidden>
     <div id="outputMessage">No QR code detected.</div>
     <div hidden><b>Data:</b> <span id="outputData"></span></div>
-  </div>
+  </div>-->
   <script src="js/qrreader.js"></script>
 </body>
 </html>

@@ -13,10 +13,11 @@ h1 {
 }
 
 #canvas {
-    width: 100%;
+    width: 200px;
+    height: 200px;
 }
 
-#output {
+/*#output {
     background: #eee;
 }
 
@@ -26,9 +27,4 @@ h1 {
 
 #noQRFound {
     text-align: center;
-}
-
-video {
-    width: 200px;
-    height: 200px;
-}
+}*/
