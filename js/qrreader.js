@@ -25,7 +25,7 @@ function qrcodeReaderSwitch(){
   }else{
     qrcodeContainer.hidden = true;
     qrcodeButton.textContent = "Turn on QR code reader";
-    webcamStream.stop();
+    webcamStream.getVideoTracks()[0].stop();
   }
 }
 
