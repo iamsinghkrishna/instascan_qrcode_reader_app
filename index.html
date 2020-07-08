@@ -2,15 +2,17 @@
 <head>
   <meta charset="utf-8">
   <title>jsQR Demo</title>
-  <link rel="stylesheet" type="text/css" href="css\styles.css">
-  <script src="js\jsQR.js"></script>
+  <script src="js/jsQR.js"></script>
+  <link href="css/styles.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>Webcam</h1>
-    <canvas id="canvas" hidden></canvas>
-    <div>Is webcam enabled: <span id="camera_check"></span></div>
-    <div>QRcode information: <span id="scan_result"></span></div>
-    <br/><br/>
-    <script src="js\qrreader.js"></script>
+  <h1>WEB CAM QR READER</h1>
+  <div id="loadingMessage">Unable to access video stream (please make sure you have a webcam enabled)</div>
+  <canvas id="canvas" hidden></canvas>
+  <div id="output" hidden>
+    <div id="outputMessage">No QR code detected.</div>
+    <div hidden><b>Data:</b> <span id="outputData"></span></div>
+  </div>
+  <script src="js/qrreader.js"></script>
 </body>
 </html>
