@@ -1,18 +1,18 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <title>QR Code Reader</title>
-    <script type="text/javascript" src="js\instascan.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css\styles.css">
+  <meta charset="utf-8">
+  <title>jsQR Demo</title>
+  <link rel="stylesheet" type="text/css" href="css\styles.css">
+  <script src="js\jsQR.js"></script>
 </head>
 <body>
-    <div id="camera_container">
+	<div id="camera_container">
         <h1>Webcam</h1>
         <video id="webcam_scanner" autoplay="true"></video>
     </div>
     <br/><br/>
-    Is webcam enabled: <div id="camera_check"></div>
-    QRcode information: <div id="scan_result"></div>
+    <div>Is webcam enabled: <span id="camera_check"></span></div>
+    <div>QRcode information: <span id="scan_result"></span></div>
     <script src="js\qrreader.js"></script>
 </body>
 </html>
