@@ -1,13 +1,24 @@
 var video = document.createElement("video");
-video.setAttribute("id", "webcamScanner");
 var canvasElement = document.getElementById("canvas");
 var canvas = canvasElement.getContext("2d");
 var loadingMessage = document.getElementById("loadingMessage");
 var qrOutput = document.getElementById("qrOutput");
-/*var outputContainer = document.getElementById("output");
-var outputMessage = document.getElementById("outputMessage");
-var outputData = document.getElementById("outputData");*/
 
+var qrcodeContainer = document.getElementById("qrcodeContainer");
+var qrcodeButton = document.getElementById("qrcodeButton");
+
+//QR code turn on and off switch
+function qrcodeReaderSwitch(){
+  if(qrcodeContainer.hidden===true){
+    qrcodeContainer.hidden = false;
+    qrcodeButton.textContent = "Turn off QR code reader";
+  }else{
+    qrcodeContainer.hidden = true;
+    qrcodeButton.textContent = "Turn on QR code reader";
+  }
+}
+
+//Draw a linee
 function drawLine(begin, end, color) {
   canvas.beginPath();
   canvas.moveTo(begin.x, begin.y);
