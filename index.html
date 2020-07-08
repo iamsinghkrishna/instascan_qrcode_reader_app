@@ -6,13 +6,11 @@
   <script src="js\jsQR.js"></script>
 </head>
 <body>
-	<div id="camera_container">
-        <h1>Webcam</h1>
-        <video id="webcam_scanner" autoplay="true"></video>
-    </div>
-    <br/><br/>
+    <h1>Webcam</h1>
+    <canvas id="canvas" hidden></canvas>
     <div>Is webcam enabled: <span id="camera_check"></span></div>
     <div>QRcode information: <span id="scan_result"></span></div>
+    <br/><br/>
     <script src="js\qrreader.js"></script>
 </body>
 </html>

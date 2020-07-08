@@ -1,10 +1,7 @@
-var video = document.createElement("video");
+    var video = document.createElement("video");
     var canvasElement = document.getElementById("canvas");
     var canvas = canvasElement.getContext("2d");
-    var loadingMessage = document.getElementById("loadingMessage");
-    var outputContainer = document.getElementById("output");
-    var outputMessage = document.getElementById("outputMessage");
-    var outputData = document.getElementById("outputData");
+    var scan_result = document.getElementById("scan_result");
 
     function drawLine(begin, end, color) {
       canvas.beginPath();
@@ -38,16 +35,9 @@ var video = document.createElement("video");
           inversionAttempts: "dontInvert",
         });
         if (code) {
-          drawLine(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
-          drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
-          drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
-          drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
-          outputMessage.hidden = true;
-          outputData.parentElement.hidden = false;
-          outputData.innerText = code.data;
+          scan_result.innerText = code.data;
         } else {
-          outputMessage.hidden = false;
-          outputData.parentElement.hidden = true;
+          sscan_result.innerText = 'NO DATA FOUND!!!';
         }
       }
       requestAnimationFrame(tick);

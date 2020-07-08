@@ -15,3 +15,6 @@ body{
 #camera_check, #scan_result{
     font-weight: bolder;
 }
+#canvas {
+    width: 100%;
+  }
